@@ -52,7 +52,7 @@ public class QuestionDbUtil {
             cv.put(questionDB.isWrong, booleanToInt(questionModel.isWrong()));
             db.insert(QuestionDB.TABLE_NAME, null, cv);
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
         }
@@ -103,7 +103,7 @@ public class QuestionDbUtil {
                 return true;
             }
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
         }
@@ -129,7 +129,7 @@ public class QuestionDbUtil {
                 return true;
             }
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
         }
@@ -158,7 +158,7 @@ public class QuestionDbUtil {
             db.setTransactionSuccessful();
             Logger.e("更改数据库完成");
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             db.endTransaction();
             this.close();
@@ -201,7 +201,7 @@ public class QuestionDbUtil {
             }
             if(cursor!=null && !cursor.isClosed()) cursor.close();
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
             if(cursor!=null && !cursor.isClosed())
@@ -246,7 +246,7 @@ public class QuestionDbUtil {
             }
             if(cursor!=null && !cursor.isClosed()) cursor.close();
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
             if(cursor!=null && !cursor.isClosed())
@@ -265,7 +265,7 @@ public class QuestionDbUtil {
             db.setTransactionSuccessful();
             Logger.e("移除收藏完成");
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             db.endTransaction();
             this.close();
@@ -282,7 +282,7 @@ public class QuestionDbUtil {
             db.setTransactionSuccessful();
             Logger.e("移除错题完成");
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             db.endTransaction();
             this.close();
@@ -325,7 +325,7 @@ public class QuestionDbUtil {
             }
             if(cursor!=null && !cursor.isClosed()) cursor.close();
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
             if(cursor!=null && !cursor.isClosed())
@@ -376,7 +376,7 @@ public class QuestionDbUtil {
             }
             if(cursor!=null && !cursor.isClosed()) cursor.close();
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
             if(cursor!=null && !cursor.isClosed())
@@ -424,7 +424,7 @@ public class QuestionDbUtil {
             }
             if(cursor!=null && !cursor.isClosed()) cursor.close();
         }catch (Exception e){
-            Logger.e(e);
+            Logger.e(e, e.getMessage());
         }finally {
             this.close();
             if(cursor!=null && !cursor.isClosed())

@@ -12,7 +12,8 @@ import com.tencent.bugly.beta.Beta;
 /**
  * Created by cheng on 17-1-8.
  */
-public class App extends Application{
+public class App extends Application {
+
     private static App instance;
     private static int dayNightTheme;
 
@@ -20,26 +21,30 @@ public class App extends Application{
     public void onCreate() {
         super.onCreate();
         instance = this;
-        dayNightTheme= (int)SharedPreferencesUtil.getParam(this, Constants.THEME,R.style.SunAppTheme);
+        dayNightTheme = (int) SharedPreferencesUtil.getParam(this, Constants.THEME, R.style.SunAppTheme);
         initBugly();
     }
 
-    public static App getInstance(){
+    public static App getInstance() {
         return instance;
     }
 
-    public static int getDayNightTheme() { return dayNightTheme; }
+    public static int getDayNightTheme() {
+        return dayNightTheme;
+    }
 
-    public static void setDayNightTheme(int theme) {dayNightTheme = theme; }
+    public static void setDayNightTheme(int theme) {
+        dayNightTheme = theme;
+    }
 
-    private void initBugly(){
+    private void initBugly() {
 
         Beta.autoInit = true;
 
         /**
          * true表示初始化时自动检查升级; false表示不会自动检查升级,需要手动调用Beta.checkUpgrade()方法;
          */
-        Beta.autoCheckUpgrade = (boolean)SharedPreferencesUtil.getParam(this, Constants.AUTO_CHECK_UPGRADE,true);
+        Beta.autoCheckUpgrade = (boolean) SharedPreferencesUtil.getParam(this, Constants.AUTO_CHECK_UPGRADE, true);
 
         /**
          * 设置升级检查周期为60s(默认检查周期为0s)，60s内SDK不重复向后台请求策略);
@@ -70,15 +75,15 @@ public class App extends Application{
          * 设置sd卡的Download为更新资源保存目录;
          * 后续更新资源会保存在此目录，需要在manifest中添加WRITE_EXTERNAL_STORAGE权限;
 
-        Beta.storageDir = Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+         Beta.storageDir = Environment
+         .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
          **/
 
         Bugly.init(getApplicationContext(), Configs.BUGLY_APP_ID, true);//最后一个参数代表是否是debug模式
 
     }
 
-    public static void checkUpgrade(){
+    public static void checkUpgrade() {
         Beta.checkUpgrade();
     }
 }
